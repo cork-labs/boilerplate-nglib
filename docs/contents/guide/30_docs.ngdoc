@@ -1,0 +1,58 @@
+@ngdoc overview
+@name - Docs
+@description
+
+# Grunt Docs
+
+This task generates your library documentation, a web app pretty that should look exactly like this site you are
+browsing now.
+
+```
+grunt docs
+```
+
+By default, the output of this task is written to `build/docs/`.
+
+## Overview
+
+The documentation pages can be generated directly by running `grunt docs` but the examples assume that the `build/src/`
+and `build/vendor/` dependencies exist, so you typically want to generate docs after a `grunt build`.
+
+Documentation pages are also generated during `grunt develop` and then updated via the watch task. We find these most
+useful to provide a development environment where the component is interacting with client code without the need for a
+whole application (no more symlinks and no more context switching in your head).
+
+With the examples being loaded in iframes you have a sandbox to simulate interaction with other libraries (for instance
+with/without jQuery or different css bootstraps) and.
+
+Finally, if your component includes UI, you can showcase all your component use cases, test them and evolve the
+component while developing, without having to always rely on a context host app.
+
+## Syntax
+
+(todo)
+
+## Examples
+
+(todo)
+
+## Open in Plunkr
+
+(todo)
+
+## Configuration
+
+(todo)
+
+
+
+**Note:**
+
+The docs task uses a grunt-ngdocs forked maintained by Cork Labs. It diverges from the current ngdocs repo in which:
+- it serves all
+
+This fork is middle step while we work on a better solution for generating javascript documentation.
+
+The goal is to release an app that is decoupled from grunt and a seperate grunt/gulp wrappers. We are also commited to
+develop a solution that, while totally compatible with ngdocs, i.e., angular specific constructs, can also be used to
+document nodejs modules or any kind of frontend libraries.

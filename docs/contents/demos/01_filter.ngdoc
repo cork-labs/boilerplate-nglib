@@ -1,0 +1,45 @@
+@ngdoc overview
+@name Filter
+@description
+
+Here's how to include examples in a page. You can include more than one per page.
+
+## myDivide Demo
+
+Here's how to use the {@link api/my.module.filter:myDivide myDivide filter}.
+
+<doc:example module="exampleApp" height="500">
+    <doc:source>
+        <script>
+            angular.module('exampleApp', ['my.module'])
+            .controller('exampleCtrl', ['$scope', 'myService', function ($scope, myService) {
+                $scope.rounding = myService.rounding;
+                $scope.dividend = 11;
+                $scope.setRounding = function () {
+                    myService.rounding = $scope.rounding;
+                };
+            }]);
+        </script>
+        <style>
+            form {
+                border: 1px solid blue;
+                padding: 10px;
+            }
+        </style>
+        <div data-ng-controller="exampleCtrl">
+            <form name="exampleForm">
+                <div class="form-group">
+                    <label>Divide this number:</label>
+                    <input name="dividend" type="text" ng-model="dividend" class="form-control" />
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="rounding" ng-click="setRounding()"/> Rounding {{rounding ? 'on' : 'off'}}
+                    </label>
+                </div>
+                <div>equals {{dividend | myDivide}}</div>
+                <em>Note: the above expression is not re-calculated unless the input value changes.</em>
+            </form>
+        </div>
+    </doc:source>
+</doc:example>

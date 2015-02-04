@@ -1,0 +1,129 @@
+@ngdoc overview
+@name Grunt Config
+@description
+
+# Grunt Config
+
+## Main
+
+The main grunt configuration is located in `grunt/build.conf.js`. This file includes
+- `paths` and  `files` - patterns used by tasks
+- `vars` - used to set up dynamically generated tasks
+
+
+## Config
+
+The `grunt` directory contains all Grunt related files.
+
+Configuration is split across:
+- `grunt/options/*.js` - base options for grunt tasks
+- `grunt/config/*.js` - specific targets and groups (some generated dynamically)
+- `grunt/tasks/*.js` - task groups
+
+## Plugins
+
+Grunt configuration uses the following Grunt plugins:
+- [group-grunt-tasks](https://github.com/cork-labs/group-grunt-tasks) - dynamically generate task groups from tagged targets.
+- [load-grunt-config-data](https://github.com/cork-labs/load-grunt-config-data) - load and merge grunt configuration data.
+- [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) - automatically load grunt tasks based on `package.json`.
+
+## Groups/Steps
+
+Take a look at `grunt/tasks/build.js` and notice that the build task does not reference any other tasks directly. Instead,
+it uses the [group-grunt-tasks](https://github.com/cork-labs/group-grunt-tasks) ability to reference a group of tasks.
+
+```
+// grunt/tasks/build.js
+
+grunt.groups.registerTask('build', [
+    'group-build_prepare',
+    'group-build_start',
+    'group-build_templates',
+    'group-build_js',
+    'group-build_test',
+    'group-build_css',
+    'group-build_indexes',
+    'group-build_assets',
+    'group-build_vendors',
+    'group-build_finish',
+]);
+
+```
+
+Some of the build steps are empty, they're just placeholders for complex libraries to grow in number of tasks/targets
+without having to continuously update the build and dist tasks.
+
+If at any point you want to know what hapens at each step, search `grunt/*.js` for example for `'build_prepare'`.
+
+If you want to run a single step form the command line you just have to:
+
+```
+$ grunt group-build_prepare
+```
+
+To gain even more insight, add `--verbose` and search for `Util group-grunt-tasks` at the top of the output.
+
+Here's part of the output for the vanilla boilerplate.
+
+```
+Util group-grunt-tasks: collect groups from tasks/targets.
+Found 15 groups(s) tagged with __groups.
+Registering tasks with prefix group-:
++ group-dist_css: [cssglue:dist_css_main]
++ group-build_templates: [html2js:build_templates_main]
++ group-dist_templates: [html2js:dist_templates_main]
+...
+```
+
+### Adding tasks to the existing groups
+
+If you want to add extra tasks/targets to existing groups, place them in a config file and simply tag your targets with
+the build steps (groups) to run them in the right order.
+
+<pre>
+// grunt/config/my-stuff.js
+module.exports = function (grunt, data) {
+    'use strict';
+
+    var config = {
+        // cleans the foobar dir on build_prepare
+        clean: {
+            foobar: {
+                __groups: ['build_prepare'],
+                src: [
+                    'path/to/foobar'
+                ]
+            }
+        }
+    };
+    return config;
+};
+</pre>
+
+
+### Adding your own groups
+
+
+You can create your own groups too, simply by tagging a task with a new group name.
+
+```
+__group: 'my_group',
+```
+
+You can now invoke:
+
+```
+grunt group-my_group
+```
+
+If you register a task that uses your group, you should make sure that the group actually exists. You can do so by
+using `grunt.groups.registerTask()` instead of `grunt.registerTask()`.
+
+```
+grunt.groups.registerTask('things', [
+    'group-build_prepare',
+    'group-my_group'
+]);
+```
+
+

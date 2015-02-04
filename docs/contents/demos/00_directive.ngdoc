@@ -1,0 +1,44 @@
+@ngdoc overview
+@name Directive
+@description
+
+Here's how to include examples in a page. You can include more than one per page.
+
+## myDivision Directive
+
+Here's how to use the {@link api/my.module.directive:myDivision myDivision directive}.
+
+<doc:example module="exampleApp" height="500">
+    <doc:source>
+        <script>
+            angular.module('exampleApp', ['my.module'])
+            .controller('exampleCtrl', ['$scope', 'myService', function ($scope, myService) {
+                $scope.rounding = myService.rounding;
+                $scope.dividend = 11;
+                $scope.setRounding = function () {
+                    myService.rounding = $scope.rounding;
+                };
+            }]);
+        </script>
+        <style>
+            form {
+                border: 1px solid red;
+                padding: 10px;
+            }
+        </style>
+        <div data-ng-controller="exampleCtrl">
+            <form name="exampleForm">
+                <div class="form-group">
+                    <label>Divide this number:</label>
+                    <input name="dividend" type="text" ng-model="dividend" class="form-control" />
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="rounding" ng-click="setRounding()" /> Rounding {{rounding ? 'on' : 'off'}}
+                    </label>
+                </div>
+                <div my-division ng-model="dividend"></div>
+            </form>
+        </div>
+    </doc:source>
+</doc:example>

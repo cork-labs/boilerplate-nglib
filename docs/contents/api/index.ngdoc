@@ -1,0 +1,9 @@
+@ngdoc overview
+@name API Reference
+@description
+
+# Boilerplate NgLib API Reference
+
+Welcome to the **Boilerplate NgLib** API reference.
+
+If you want to know how **Boilerplate NgLib** works, checkout the {@link guide/ guide} and the {@link demos/ demos}

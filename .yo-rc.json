@@ -1,0 +1,27 @@
+{
+  "generator-nglib": {
+    "project.name": "Boilerplate NgLib",
+    "project.description": "Boilerplate for AngularJS libraries.",
+    "bower.id": "boilerplate-nglib",
+    "npm.id": "boilerplate-nglib",
+    "angular.module": "my.module",
+    "has.tpl": true,
+    "has.css": true,
+    "has.less": true,
+    "has.sass": true,
+    "has.docs": true,
+    "use.git": true,
+    "github.username": "cork-labs",
+    "github.reponame": "boilerplate-nglib",
+    "homepage.url": "https://github.com/cork-labs/boilerplate-nglib",
+    "docs.url": "http://jarvis.cork-labs.org/boilerplate-nglib/current/docs",
+    "bugs.url": "https://github.com/cork-labs/boilerplate-nglib/issues",
+    "license.name": "MIT",
+    "license.url": "http://cork-labs.mit-license.org/2015",
+    "author.name": "Cork Labs",
+    "author.email": "info@cork-labs.org",
+    "author.url": "http://cork-labs.org",
+    "use.travis": true,
+    "travis.id": "cork-labs/boilerplate-nglib"
+  }
+}

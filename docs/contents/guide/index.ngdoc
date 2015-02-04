@@ -1,0 +1,53 @@
+@ngdoc overview
+@name Guide
+@description
+
+# Boilerplate NgLib
+
+[![Build Status: Linux](http://img.shields.io/travis/cork-labs/boilerplate-nglib/master.svg?style=flat-square)](https://travis-ci.org/cork-labs/boilerplate-nglib)
+
+> Boilerplate for AngularJS libraries.
+
+The goal of this boilerplate is to make your life easier developing AngularJS libraries. We put this together to remove
+the friction involved in splitting a large project across many maintainable repos. We hope this effort will contribute
+to better software architecture through smaller, isolated, testable, stable and documented components.
+
+Main features:
+- Automated:
+  - automate all the tasks
+- Modular:
+  - configure and extend the existing tasks and add new tasks without breaking the system
+- Complete:
+  - generate useful documentation without effort
+  - test all your code, generate code coverage reports effortlessly
+  - focused on generating diverables
+  - travis ready
+  - bundled with nice utils for hitting the ground running and releasing without friction
+- Fully documented
+
+
+## Getting Started
+
+To start working in your awesome library, clone this repository, install the dependencies and simply run `grunt develop`.
+
+```
+$ npm install -g grunt-cli bower
+$ npm install
+$ bower install
+$ ./bootstrap.sh
+$ grunt develop
+```
+
+At this point, the source examples included were built into the `build/` directory and a simple webserver is launched so
+that you can browse the documentation, the examples and the code coverage.
+
+```
+...
+Running "serve:build" (serve) task
+Started connect web server on http://0.0.0.0:8000
+
+Running "watch" task
+Waiting...
+```
+
+If you point your browser to `http://0.0.0.0:8000/docs` you should be looking at this exact documentation.
