@@ -108,7 +108,7 @@ angular.module('my.module', ['my.module.templates'])
  * @param {number} ngModel The dividend.
  *
  * @example
-  <example module="exampleApp" height="500">
+  <example module="exampleApp" height="200">
     <file name="index.html">
         <div data-ng-controller="exampleCtrl">
             <form name="exampleForm">
@@ -177,7 +177,7 @@ angular.module('my.module', ['my.module.templates'])
  * @param {number} dividend The number to divide.
  *
  * @example
-  <example module="exampleApp" height="500">
+  <example module="exampleApp" height="200">
     <file name="index.html">
         <div data-ng-controller="exampleCtrl">
             <form name="exampleForm">

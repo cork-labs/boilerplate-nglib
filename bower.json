@@ -17,6 +17,7 @@
     ".jsbeautifyrc",
     ".jshintrc",
     ".travis.yml",
+    ".yo-rc.json",
     "Gruntfile.js",
     "TODO.md",
     "bootstrap.sh",
@@ -25,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:cork-labs/boilerplate-nglib.git"
   },
   "dependencies": {
     "angular": "~1.3.8"

@@ -8,7 +8,7 @@ Here's how to include examples in a page. You can include more than one per page
 
 Here's how to use the {@link api/my.module.filter:myDivide myDivide filter}.
 
-<doc:example module="exampleApp" height="500">
+<doc:example module="exampleApp" height="200">
     <doc:source>
         <script>
             angular.module('exampleApp', ['my.module'])

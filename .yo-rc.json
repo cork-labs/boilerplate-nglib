@@ -13,6 +13,7 @@
     "use.git": true,
     "github.username": "cork-labs",
     "github.reponame": "boilerplate-nglib",
+    "repo.url": "git@github.com:cork-labs/boilerplate-nglib.git",
     "homepage.url": "https://github.com/cork-labs/boilerplate-nglib",
     "docs.url": "http://jarvis.cork-labs.org/boilerplate-nglib/current/docs",
     "bugs.url": "https://github.com/cork-labs/boilerplate-nglib/issues",
