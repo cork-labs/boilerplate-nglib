@@ -1,0 +1,37 @@
+{
+  "name": "boilerplate-nglib",
+  "version": "0.0.1",
+  "description": "Boilerplate for AngularJS libraries.",
+  "authors": [
+    "Cork Labs <info@cork-labs.org> (http://cork-labs.org)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/cork-labs/boilerplate-nglib",
+  "ignore": [
+    "bin",
+    "docs",
+    "grunt",
+    ".bowerrc",
+    ".editorconfig",
+    ".gitignore",
+    ".jsbeautifyrc",
+    ".jshintrc",
+    ".travis.yml",
+    ".yo-rc.json",
+    "Gruntfile.js",
+    "TODO.md",
+    "bootstrap.sh",
+    "package.json",
+    "travis.sh"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cork-labs/boilerplate-nglib.git"
+  },
+  "dependencies": {
+    "angular": "~1.3.8"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.3.8"
+  }
+}

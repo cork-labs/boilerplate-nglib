@@ -1,0 +1,125 @@
+@ngdoc overview
+@name - Watch
+@description
+
+# Grunt Watch
+
+This task watches for new files, deleted files and changed files in order to invoke other grunt tasks to update the
+build artifacts.
+
+````
+grunt watch
+```
+
+## Common Files
+
+Package files are watched for changes and immediately linted.
+
+```
+files.pkg
+  - jshint:pkg
+```
+
+Grunt configuration files are not only linted, but also beautified.
+
+```
+files.grunt
+  - jsbeautifier:beautify_grunt
+  - jshint:grunt
+```
+
+Additionaly, when grunt config files are modified the Grunt configuration is reloaded from scratch and the next time
+a change triggers other grunt tasks, the new configuration will be in effect.
+
+For instance, if you change the configuration for docs, e.g. add a section to `vars.docs.sections` in `grunt/build.conf.js`
+all you have to do is save a `.ngdoc` file to force the `grunt docs` task to run again and generate the new section.
+
+This behaviour is setup in `grunt/config/common.js`.
+
+## Source Files
+
+All source files are are watched for changes and trigger different tasks as necessary.
+
+The complete configuration can be found in `grunt/config/build.js`.
+
+### Javascript Source
+
+Javascript source files are beautified, linted, built and unit tests are executed.
+
+```
+files.src_js
+  - jsbeautifier:beautify_src_js
+  - jshint:src_js
+  - group-build_js
+  - group-build_test
+```
+
+### Angular Templates
+
+Template files are built into modules and unit tests are executed.
+
+```
+files.src_tpl
+  - group-build_templates
+  - group-build_test
+```
+
+### Specs
+
+Test specs are beautified, linted and unit tests are executed.
+
+```
+files.src_spec =>
+  - jsbeautifier:beautify_src_spec
+  - jshint:src_spec
+  - group-build_test
+```
+
+### Less
+
+Less source files are compiled.
+
+```
+files.src_less
+  - group-build_css
+```
+
+
+## Vendor Dependencies
+
+Watching vendor dependencies is only really useful when you are working in two libraries at the same time and setup
+simlinks between the dependant library and its dependencies. Although the whole purpose of this boilerplate is to
+isolate development of each library in space, time and mind-set, so that you can focus on one library at a time, this
+feature is still available by default.
+
+Vendor dependencies are copied over too the `build/` directory again and unit tests are executed.
+
+```
+files.vendor_js
+  - group-build_test
+  - group-build_vendors
+```
+
+Vendor dependencies only used in tests, e.g. `angular-mocks.js` simply trigger a new run of unit tests.
+
+```
+files.vendor_test_js
+  - group-build_test
+```
+
+## Docs
+
+The whole docs application is rebuilt whenever any documentation related file is changed.
+
+```
+files.docs
+  - group-docs_build
+```
+
+The `files.docs` pattern is only used for this watch, so make sure it includes all files involved in your documentation.
+
+By default, this includes:
+- `files.src_js` - all javascript source files
+- `src/**/*.ngdoc` - all doc files in `src/`
+- `docs/**/*.ngdoc` - all doc files in `docs/`
+

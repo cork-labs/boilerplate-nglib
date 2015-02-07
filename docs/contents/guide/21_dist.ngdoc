@@ -1,0 +1,33 @@
+@ngdoc overview
+@name - Dist
+@description
+
+# Grunt Dist
+
+This task generates your library deliverables, i.e., your distributable files.
+
+```
+grunt dist
+```
+
+By default, the output of this task is written to `dist/`.
+
+## Overview
+
+The dist task is composed of several steps:
+
+- `group-dist_prepare` - cleanup
+- `group-dist_start` - jshint, beautifier check
+- `group-dist_templates` - generate the template modules (into tmp/)
+- `group-dist_js` - generate the concatenated/minified deliverables
+- `group-dist_test` - run unit tests (ci target)
+- `group-dist_css` - compile less/sass, copy css sources, and generate the concatenated/minified deliverables
+- `group-dist_indexes` - generate index.html files (not common used in libraries)
+- `group-dist_assets` - copy over the assets, optimize them
+- `group-dist_vendors` - copy over the vendor deps included with the dist/ (only needed for non-bower deps)
+- `group-dist_finish` - placeholder
+
+To understand the groups/steps and how to leverage them, refer to the {@link guide/40_grunt_config Grunt Config} guide.
+
+Unit tests are executed on the distribution files to make sure concatenation/minification did not create any problem.
+

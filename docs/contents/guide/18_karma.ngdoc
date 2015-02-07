@@ -1,0 +1,104 @@
+@ngdoc overview
+@name - Karma
+@description
+
+# Grunt Karma
+
+Tests are executed via karma runner.
+
+This setup includes Jasime unit tests, PhantomJS and Istambul coverage reports.
+
+## Build & Dist
+
+Two test configurations are included: `karma:build` for development tests and `karma:dist` for distribution/CI environments
+where the actual `dist` package is tested.
+
+You will probably need to tweak your test targets, or even create new ones to include different scenarios.
+
+Check the following in the `grunt/build.conf.js` file for the default configuration:
+
+**Files included in the all tests:**
+- defined in `grunt/build.conf.js` under `files.karma_include`:
+  - `files.vendor_js` - vendor dependencies
+  - `files.vendor_test_js` - vendor test dependencies (ex: angular mocks)
+  - `src/**/*.spec.js` - all the spec files in `src/`
+
+**Advanced options:**
+
+Check also `grunt/options/karma.js` for other options:
+- frameworks (default: jasmine)
+- plugins (default: jasmine, coverage and launchers for phantom, chrome and firefox)
+- reporter options (default: dots)
+- code coverage options
+
+
+### Build Configuration
+
+The `karma:build` target is declared in `grunt/config/build.js`.
+
+```
+grunt karma:build
+```
+
+**Additional files:**
+
+- defined in `grunt/build.conf.js` under `vars.build_test.include`:
+  - `src/**/*.js` - all source files in `src/`
+- appended in `grunt/config/build.js`:
+  - all the template modules (destination of `html2js` targets)
+
+As you can see, this target uses the source files directly. If you need to pre-process any js files, from coffin script
+or any sort of template, before you will need to do so before running `karma:build`.
+
+You can use the `group-build_js` for that purpose, tagging tasks with this group to make sure they run before the tests
+when executing a build.
+
+Don't forget to add the resulting files to the included files in the `karma:unit` target, either defining them in
+`grunt/build.conf.js` under `vars.build_test.include` or appending to the `included` files option directly in
+`grunt/config/build.js`, like the default configuration does to add the generated template modules.
+
+**Browsers:**
+
+Defined in `grunt/build.conf.js` under `vars.build_test.browsers`.
+
+
+### Dist Configuration
+
+The `karma:dist` target is declared in `grunt/config/dist.js`.
+
+```
+grunt karma:dist
+```
+
+**Additional files:**
+- defined in `grunt/build.conf.js` under `vars.dist_test.include`:
+  - `dist/**/*.min.js` - all the minified js in `dist/`
+
+**Browsers:**
+
+Defined in `grunt/build.conf.js` under `vars.dist_test.browsers`.
+
+
+## Coverage
+
+Test coverage during build is output to `build/coverage/` and can be loaded via the devserver at `http://localhost:8000/coverage`
+and should {@link ../coverage like this}.
+
+Files excluded from coverage are defined in `grunt/build.conf.js` under `files.karma_coverage`. The syntax is contrived
+because karma expects a string in `minimatch` format, as opposed to an expandable grunt string/array with globs.
+
+```
+<%= paths.src %>/**/!(*spec|*mock).js
+```
+
+## Troubleshooting
+
+To troubleshoot, `grunt karma:build --verbose` and `grunt karma:dist --verbose`  are your friends.
+
+This will trigger the grunt config to set `karma.loglevel = 'debug'` which will tell karma to list all the lodaed
+plugins as well as the javascript files served and loaded into the browsers.
+
+The most common problem is some dependency not being loaded, which will typically cause angular injection exceptions.
+
+Another typical case is where no spec files are loaded. In this case the test browser hangs for a while and no tests
+are executed at all.

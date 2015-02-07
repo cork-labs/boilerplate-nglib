@@ -1,0 +1,57 @@
+@ngdoc overview
+@name Filesystem
+@description
+
+# Filesystem Structure
+
+## Source
+
+The `src` directory contains your source code and assets.
+
+- `src/lib/` - JavaScript source, unit test specs and angular templates
+- `src/sass/` - SASS source
+- `src/less/` - LESS source
+- `src/css/` - extra raw CSS not pre-processed
+- `src/docs/` - the index.ngdoc file
+
+## Docs
+
+The `docs` directory contain the extra documentation pages and assets used.
+
+In this case, the `guide` and `demos` sections are included, as well as a stylesheet with some overrides and the Cork Labs logo.
+
+## Build
+
+The `build` directory is where the `grunt build`, `grunt docs` and `grunt test` tasks write their outputs.
+
+- `build/src/lib` - JavaScript sources copied over, loaded into the documentation examples.
+- `build/src/less/` - LESS source files copied over, loaded by the browser via source maps.
+- `build/vendor` - vendor dependencies, copied over to be loaded into the documentation examples.
+- `build/docs/` - the documentation app, the one you are looking at now.
+- `build/coverage` - coverage reports, check the {@link ../coverage coverage reports} of the example `my.module` lib.
+
+## Dist
+
+The `dist` directory is where the `grunt dist` task writes its outputs. It contains the packaged files ready for
+publishing in Bower or other package managers.
+
+The number of files generated depends on the nature of your library. It might include one or more `.js` files or
+one or more `.css` files or even some image and/or font assets. You may choose to minify your files and keep or discard
+the non-minified version.
+
+Everything is configurable in `grunt/build.config.js` under `dist_css` and `dist_js`.
+
+## Grunt
+
+The `grunt` directory contains all Grunt related files.
+
+Configuration is split across:
+- `grunt/build.conf.js` - definitions only:
+  - `paths` and  `files` - patterns used by tasks
+  - `vars` - set up dynamically generated tasks, e.g., tpl modules, less src/dest pairs, docs sections
+- `grunt/options/*.js` - base options for grunt tasks
+- `grunt/config/*.js` - specific targets and groups (some generated dynamically)
+- `grunt/tasks/*.js` - task groups
+
+For more details on the included grunt tasks and how to configure them to your needs refer to the {@link guide/10_grunt_tasks Grunt Tasks}
+and {@link guide/40_grunt_config Grunt Config} guides.

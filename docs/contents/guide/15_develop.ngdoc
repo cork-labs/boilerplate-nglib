@@ -1,0 +1,28 @@
+@ngdoc overview
+@name - Develop
+@description
+
+# Grunt Develop
+
+This is the task you will probably be executing most of the time.
+
+```
+grunt develop
+```
+
+It runs the whole build process, including tests and documentation generation, launches the development server at
+`http://localhost:8000/` and starts watching for changes.
+
+- `build` - deletes the entire `build/` and does a complete {@link guide/20_build build} from scratch
+- `docs` - rebuilds the {@link guide/30_docs documentation} app
+- `serve:build` - launches the devserver
+- `watch` - watches for changes
+
+
+Just point your browser at `http://localhost:8000/docs` to start playing with your example pages, and don't forget to
+keep an eye on the coverate reports at `http://localhost:8000/coverage`.
+
+The `grunt watch` task is now watching for new files and for changes and (re)building as necessary. Check the
+{@link guide/16_watch Watch} guide for details.
+
+To learn more about the `grunt build` task, proceed to the {@link guide/20_build Build} guide.

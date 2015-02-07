@@ -1,0 +1,56 @@
+@ngdoc overview
+@name my.module
+@description
+
+> Provides a configurable service that divides numbers by X, as well as a directive and a filter.
+
+# Dependencies
+
+- None.
+
+
+# Usage
+
+
+## Configuration
+
+Configure the {@link my.module.myService myService} service by invoking `configure()` on the {@link my.module.myServiceProvider myServiceProvider}.
+during the config phase of your app.
+
+<pre>
+angular.module('app', ['my.module'])
+.config(['myServiceProvider', function (myServiceProvider) {
+    myServiceProvider.configure(....);
+}])
+</pre>
+
+
+## Service
+
+Use the {@link my.module.myService myService} service by injecting it into your controllers or services.
+
+<pre>
+angular.module('app', ['my.module'])
+.service(['yourService', function (myService) {
+    var myNumber = myService.divide(42);
+}])
+</pre>
+
+
+## Directive
+
+You can also use the awesome {@link my.module.directive:myDivision directive}.
+
+<pre>
+<div my-division="number"></div>
+</pre>
+
+
+## Filter
+
+This module also provides an awesome {@link my.module.filter:myDivide filter}.
+
+<pre>
+<div>{{number | my-divide</div>
+</pre>
+

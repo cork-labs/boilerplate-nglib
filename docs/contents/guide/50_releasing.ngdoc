@@ -1,0 +1,49 @@
+@ngdoc overview
+@name Releasing
+@description
+
+# Releasing
+
+## Creating new releases
+
+### Release tasks
+
+(todo)
+
+```
+$ grunt release:patch
+$ grunt release:minor
+$ grunt release:major
+```
+
+### Manually running release steps one by one.
+
+(todo)
+
+```
+$ grunt release minor
+$ grunt bump-only:minor
+$ grunt changelog
+$ grunt bump-commit
+```
+
+# Publishing
+
+Once your repository has one release tag you are ready to publish it to npm and/or bower.
+
+## Publishing to Bower
+
+1) Make sure you review `bower.json`, specially the names and URLs.
+
+2) Optionally, include a bower in our `README.md` file:
+
+```
+ [![Bower version](http://img.shields.io/bower/v/nglib-boilerplate?style=flat-square)]
+ (https://github.com/cork-labs/nglib-boilerplate)
+```
+
+3) Follow the steps listed in the official [bower register](http://bower.io/docs/creating-packages/#register) docs.
+
+## Publishing to npm
+
+(todo)

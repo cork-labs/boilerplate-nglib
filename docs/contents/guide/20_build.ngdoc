@@ -1,0 +1,45 @@
+@ngdoc overview
+@name - Build
+@description
+
+# Grunt Build
+
+This is the core of the development task.
+
+```
+grunt build
+```
+
+You will probably want to execute `grunt develop` directly most of the time, since that will also generate the
+documentation and launch the server and the watch. But if you simply want to run a build, execute:
+
+````
+grunt build
+```
+
+By default, the output of this task is written to `build/`.
+
+## Overview
+
+The build task is composed of several steps:
+
+- `build_prepare` - cleanup and beautifier
+- `build_start` - jshint
+- `build_templates` - generate the template modules
+- `build_js` - copy js source
+- `build_test` - run unit tests
+- `build_css` - compile less/sass, copy css sources, copy sourcemaps
+- `build_indexes` - generate index.html files (not common used in libraries)
+- `build_assets` - copy over the assets
+- `build_vendors` - copy the vendor deps
+- `build_finish` - placeholder
+
+To understand the groups/steps and how to leverage them, refer to the {@link guide/40_grunt_config Grunt Config} guide.
+
+**Note:** In this task, your css and javascript is NOT concatenated and minified.
+
+Tests are executed loading the source files directly from `src/` but the group `build_js` runs before this so if you
+want to pre-process or dynamically generate some js files needed during the tests you can do so by including those tasks
+in this step.
+
+

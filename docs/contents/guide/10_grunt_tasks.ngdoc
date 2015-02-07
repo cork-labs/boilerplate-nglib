@@ -1,0 +1,134 @@
+@ngdoc overview
+@name Grunt Tasks
+@description
+
+# Grunt Tasks
+
+## Main Tasks
+
+### {@link guide/15_develop Develop}
+
+Runs the whole build process, including tests and documentation generation, launches the development server at
+`http://localhost:8000/` in `keepalive` mode and starts watching for changes.
+
+```
+grunt develop
+```
+
+Just point your browser at `http://localhost:8000/docs` to start playing with your example pages.
+
+Read more in the {@link guide/15_develop Grunt Develop} guide.
+
+### Devserver
+
+A simple express server is launched on `http://localhost:8000/` everytime you run `grunt develop`, but killing the watch
+process will kill the dev server.
+
+If you want to run the server standalone you can always execute:
+
+```
+grunt devserver
+```
+
+This is an alias for the more verbose `grunt serve:build:keepalive`.
+
+
+### {@link guide/20_build Build}
+
+To generate a complete build:
+
+```
+grunt build
+```
+
+The details of {@link guide/20_build Grunt Build} guide.
+
+### {@link guide/21_dist Dist}
+
+To generate the distibution files:
+
+```
+grunt dist
+```
+
+Read more in the {@link guide/21_dist Grunt Dist} guide.
+
+
+
+
+
+### {@link guide/30_docs Docs}
+
+To (re)generate the documentation app:
+
+```
+grunt docs
+```
+
+Please note that this assumes that the `build/` directory already contains `src/` and `vendors/`, which are typically
+needed to run the examples in the documentation.
+
+Make sure to execute `grunt build` before. To serve the documentation use the `grunt devserver` task.
+
+### {@link guide/22_ci CI}
+
+(todo)
+
+Read more in the {@link guide/22_ci Grunt CI} guide.
+
+
+### {@link guide/50_releasing Release}
+
+(todo)
+
+Read more in the {@link guide/50_releasing Releasing} guide.
+
+
+## Group Tasks
+
+As usual, all tasks can be executed directly by `name:target`, but this boilerplate leverages the possibilities of
+[group-grunt-tasks](https://github.com/cork-labs/group-grunt-tasks) to group tasks by purpose.
+
+At some point, will probably want to invoke these steps directly from the command line, or in meta tasks like `develop`,
+`dist` or `ci`.
+
+```
+grunt group-build_prepare
+```
+
+Check the {@link guide/20_build Build} guide, and the {@link guide/21_dist Dist} guide to learn about all these steps
+and read {@link guide/40_grunt_config Grunt Config} to learn how to add tasks to these groups and create your own.
+
+## Other Tasks
+
+Summary of included tasks:
+
+(todo)
+
+```
+grunt bump
+
+grunt changelog
+
+grunt cssglue
+
+grunt html2js
+
+grunt jsbeautifier
+
+grunt jsglue
+
+grunt jshint
+
+grunt karma
+
+grunt less
+
+grunt ngdocs
+
+grunt ngindex
+
+grunt serve
+
+grunt shell
+```
