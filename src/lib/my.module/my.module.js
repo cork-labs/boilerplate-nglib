@@ -8,7 +8,7 @@
      * @name my.module.myServiceProvider
      *
      * @description
-     * Allows configuration of the {@link my.module.myService} service.
+     * Allows the {@link my.module.myService myService} service to be configured..
      */
     module.provider('myService', [
 
