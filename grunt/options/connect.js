@@ -1,12 +1,11 @@
 module.exports = {
 
-    serve: {
+    connect: {
 
         options: {
 
-            useAvailablePort: true
+            port: '<%=port%>'
         }
     }
 
 };
-

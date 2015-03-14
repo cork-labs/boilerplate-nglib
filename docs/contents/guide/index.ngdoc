@@ -39,7 +39,6 @@ $ ./bootstrap.sh
 $ grunt develop
 ```
 
-
 At this point, the source was validated, tested and built into the `build/` directory. A simple webserver is launched so
 that you can browse the generated code, documentation and the code coverage. If you now edit and save any project file,
 the necessary `grunt` tasks will be triggered to update the build and docs.

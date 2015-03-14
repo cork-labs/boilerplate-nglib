@@ -85,4 +85,3 @@ describe('my.module', function () {
         });
     });
 });
-

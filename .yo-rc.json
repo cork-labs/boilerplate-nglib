@@ -20,7 +20,7 @@
     "license.name": "MIT",
     "license.url": "http://cork-labs.mit-license.org/2015",
     "author.name": "Cork Labs",
-    "author.email": "info@cork-labs.org",
+    "author.email": "contact@cork-labs.org",
     "author.url": "http://cork-labs.org",
     "use.travis": true,
     "travis.id": "cork-labs/boilerplate-nglib"

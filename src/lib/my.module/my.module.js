@@ -8,7 +8,7 @@
      * @name my.module.myServiceProvider
      *
      * @description
-     * Allows the {@link my.module.myService myService} service to be configured..
+     * Allows the {@link my.module.myService myService} service to be configured.
      */
     module.provider('myService', [
 
@@ -29,7 +29,7 @@
              * @methodOf my.module.myServiceProvider
              *
              * @description
-             * Configures the {@link my.module.myService} service.
+             * Configures the {@link my.module.myService myService} service.
              *
              * @param {Object} config Object with configuration options, extends base configuration.
              * - divisor {number}
@@ -225,4 +225,3 @@
     ]);
 
 })(angular);
-

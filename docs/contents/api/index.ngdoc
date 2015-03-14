@@ -2,7 +2,6 @@
 @name API Reference
 @description
 
-
 # Boilerplate NgLib - API Reference
 
 > Welcome to the **Boilerplate NgLib** API reference.
@@ -13,3 +12,4 @@ If you want to know how **Boilerplate NgLib** works, checkout the {@link guide/ 
 ## Modules
 
 - [my.module](#/api/my.module) - Provides a configurable service that divides numbers by X, as well as a directive and a filter.
+
